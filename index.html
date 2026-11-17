@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vinil Barbearia</title>
+<meta name="description" content="Assine um plano mensal e corte o cabelo ou faça a barba quantas vezes quiser. Vinil Barbearia: 3 unidades em Santos, de terça a sábado.">
+<meta name="theme-color" content="#141912">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+<noscript><style>.loader{display:none!important}</style></noscript>
+</head>
+<body>
+
+<!-- Ícones (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm0 1.800a8.200 8.200 0 1 1-4.300 15.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 0 1 12 3.800zM8.700 7.500c-.2 0-.5.100-.7.400-.3.300-1 1-1 2.400 0 1.400 1 2.800 1.200 3 .2.200 2 3.200 5 4.300 2.500.9 3 .7 3.500.6.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.6-.3l-1.800-.9c-.3-.1-.5-.1-.7.1l-.8 1c-.1.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.8-.7-1.400-1.600-1.600-1.900-.1-.3 0-.4.100-.5l.4-.5.3-.4c.1-.2.100-.3 0-.5l-.8-2c-.2-.5-.4-.5-.6-.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></symbol>
+</svg>
+
+<template id="tpl-scissors">
+  <svg class="scissors" viewBox="0 0 200 100" aria-hidden="true">
+    <g class="blade"><path class="bl" d="M68 41 L198 50 L68 59Z"/><path class="sh" d="M70 50 L36 72"/><circle class="rg" cx="24" cy="80" r="13"/></g>
+    <g transform="translate(0 100) scale(1 -1)"><g class="blade"><path class="bl" d="M68 41 L198 50 L68 59Z"/><path class="sh" d="M70 50 L36 72"/><circle class="rg" cx="24" cy="80" r="13"/></g></g>
+    <circle class="pv" cx="70" cy="50" r="4.500"/>
+  </svg>
+</template>
+
+<!-- Abertura: a tesoura corta a tela ao meio -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__half loader__half--t"><img src="assets/logo/logo-transparent.png" alt=""></div>
+  <div class="loader__half loader__half--b"><img src="assets/logo/logo-transparent.png" alt=""></div>
+  <div class="loader__cut"><span data-scissors></span></div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#topo" aria-label="Vinil, início"><img src="assets/logo/logo-transparent.png" alt="Vinil"></a>
+  <nav class="nav__links" id="menu" aria-label="Principal">
+    <a href="#planos">Planos</a><a href="#servicos">Serviços</a><a href="#unidades">Unidades</a><a href="#horario">Horário</a><a href="#contato">Contato</a>
+  </nav>
+  <a class="btn btn--sm" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Agendar</a>
+  <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</header>
+
+<main id="topo">
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero__logo" src="assets/logo/logo-transparent.png" alt="Vinil Barbearia">
+    <h1 class="hero__title cut-in">Qualquer dia, qualquer hora.<br>Seu estilo garantido.</h1>
+    <p class="hero__sub">Assine um plano mensal de corte e barba e venha quantas vezes quiser, de terça a sábado, em 3 unidades em Santos.</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Assinar um plano</a>
+      <a class="btn btn--ghost" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Agendar horário</a>
+    </div>
+    <div class="cut cut--hero in" aria-hidden="true"><span class="cut__line"></span><span data-scissors class="cut__s"></span></div>
+    <div class="glass chip"><span class="dot" id="statusDot"></span><span id="statusText">Terça a sábado, das 9h às 20h</span></div>
+  </section>
+
+  <!-- PLANOS -->
+  <section class="sec" id="planos">
+    <h2 class="cut-in">Planos de assinatura</h2>
+    <p class="sec__lead">Pague um valor mensal e use o plano quantas vezes quiser, de terça a sábado. Flexibilidade total para manter o estilo em dia.</p>
+    <div class="plans">
+      <article class="glass plan">
+        <h3>Corte</h3>
+        <p class="price"><small>R$</small> 129,99 <em>/mês</em></p>
+        <ul><li>Cortes ilimitados</li><li>Terça a sábado</li><li>Descontos nos serviços exclusivos</li></ul>
+        <a class="btn btn--ghost" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Assinar corte</a>
+      </article>
+      <article class="glass plan plan--hot">
+        <span class="plan__tag">Mais vantajoso</span>
+        <h3>Corte + Barba</h3>
+        <p class="price"><small>R$</small> 229,99 <em>/mês</em></p>
+        <ul><li>Cortes e barba ilimitados</li><li>R$ 39,99 a menos que dois planos separados</li><li>Descontos nos serviços exclusivos</li></ul>
+        <a class="btn btn--primary" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Assinar corte + barba</a>
+      </article>
+      <article class="glass plan">
+        <h3>Barba</h3>
+        <p class="price"><small>R$</small> 139,99 <em>/mês</em></p>
+        <ul><li>Barba ilimitada</li><li>Terça a sábado</li><li>Descontos nos serviços exclusivos</li></ul>
+        <a class="btn btn--ghost" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Assinar barba</a>
+      </article>
+    </div>
+    <ol class="steps glass">
+      <li><b>1</b> Escolha seu plano</li>
+      <li><b>2</b> Faça a adesão online</li>
+      <li><b>3</b> Agende e venha cortar</li>
+    </ol>
+  </section>
+
+  <div class="cut" data-cut><span class="cut__line"></span><span data-scissors class="cut__s"></span></div>
+
+  <!-- SERVIÇOS -->
+  <section class="sec" id="servicos">
+    <h2 class="cut-in">Serviços exclusivos</h2>
+    <div class="glass services">
+      <ul>
+        <li>Visagismo</li><li>Ozônio terapia</li><li>Microagulhamento</li><li>Alinhamento capilar</li>
+        <li>Tratamento de queda de cabelo</li><li>Tratamento de caspa</li><li>Avaliação capilar</li>
+        <li>Pigmentação de barba</li><li>Tintura de cabelo</li><li>Selagem</li><li>Depilação com cera: nariz e ouvido</li>
+      </ul>
+    </div>
+    <p class="note"><b>Assinantes têm desconto</b> em todos os nossos serviços.</p>
+  </section>
+
+  <div class="cut" data-cut><span class="cut__line"></span><span data-scissors class="cut__s"></span></div>
+
+  <!-- UNIDADES -->
+  <section class="sec" id="unidades">
+    <h2 class="cut-in">Nossas unidades</h2>
+    <div class="tabs" role="tablist" aria-label="Unidades">
+      <button role="tab" aria-selected="true" aria-controls="u1" id="t1">Canal 4</button>
+      <button role="tab" aria-selected="false" aria-controls="u2" id="t2" tabindex="-1">Canal 2</button>
+      <button role="tab" aria-selected="false" aria-controls="u3" id="t3" tabindex="-1">Ponta da Praia</button>
+    </div>
+
+    <article class="glass unit" role="tabpanel" id="u1" aria-labelledby="t1">
+      <iframe title="Mapa da unidade Canal 4" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Siqueira+Campos,+361,+Embar%C3%A9,+Santos+-+SP&z=16&output=embed"></iframe>
+      <div class="unit__body">
+        <h3>Unidade Canal 4</h3>
+        <p>Av. Siqueira Campos, 361<br>Embaré, Santos - SP</p>
+        <p class="unit__tel">(13) 3349-4597</p>
+        <div class="unit__btns">
+          <a class="btn btn--wa" href="https://wa.me/551333494597" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Av.+Siqueira+Campos,+361,+Embar%C3%A9,+Santos+-+SP" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Como chegar</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="glass unit" role="tabpanel" id="u2" aria-labelledby="t2" hidden>
+      <iframe title="Mapa da unidade Canal 2" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Bernardino+de+Campos,+441,+Campo+Grande,+Santos+-+SP&z=16&output=embed"></iframe>
+      <div class="unit__body">
+        <h3>Unidade Canal 2</h3>
+        <p>Av. Bernardino de Campos, 441<br>Campo Grande, Santos - SP</p>
+        <p class="unit__tel">(13) 3224-3760</p>
+        <div class="unit__btns">
+          <a class="btn btn--wa" href="https://wa.me/551332243760" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Av.+Bernardino+de+Campos,+441,+Campo+Grande,+Santos+-+SP" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Como chegar</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="glass unit" role="tabpanel" id="u3" aria-labelledby="t3" hidden>
+      <iframe title="Mapa da unidade Ponta da Praia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rua+Bassim+Nagib+Trabulsi,+162,+Ponta+da+Praia,+Santos+-+SP&z=16&output=embed"></iframe>
+      <div class="unit__body">
+        <h3>Unidade Ponta da Praia</h3>
+        <p>Rua Bassim Nagib Trabulsi, 162<br>Ponta da Praia, Santos - SP</p>
+        <p class="unit__tel">(13) 3385-9766</p>
+        <div class="unit__btns">
+          <a class="btn btn--wa" href="https://wa.me/551333859766" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Rua+Bassim+Nagib+Trabulsi,+162,+Ponta+da+Praia,+Santos+-+SP" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Como chegar</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <div class="cut" data-cut><span class="cut__line"></span><span data-scissors class="cut__s"></span></div>
+
+  <!-- HORÁRIO + CONTATO -->
+  <section class="sec" id="horario">
+    <h2 class="cut-in">Horário de funcionamento</h2>
+    <div class="glass hours">
+      <p class="hours__days">Terça a sábado</p>
+      <p class="hours__time">Das 9h às 20h</p>
+      <p class="hours__closed">Unidades fechadas às segundas-feiras.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="contato">
+    <h2 class="cut-in">Fale conosco</h2>
+    <div class="contacts">
+      <a class="glass contact" href="https://wa.me/551333494597" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><b>Unidade Canal 4</b>(13) 3349-4597</span></a>
+      <a class="glass contact" href="https://wa.me/551332243760" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><b>Unidade Canal 2</b>(13) 3224-3760</span></a>
+      <a class="glass contact" href="https://wa.me/551333859766" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><b>Unidade Ponta da Praia</b>(13) 3385-9766</span></a>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2 class="cut-in">Seu estilo garantido!</h2>
+    <p>Assine hoje e nunca mais fique sem horário.</p>
+    <a class="btn btn--primary btn--lg" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Assinar ou agendar agora</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="assets/logo/logo-transparent.png" alt="Vinil">
+  <p>Canal 4 · Canal 2 · Ponta da Praia · Santos - SP</p>
+  <p class="foot__c">© <span id="year">2026</span> Vinil Barbearia. Todos os direitos reservados.</p>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a class="btn btn--primary" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Assinar plano</a>
+  <a class="btn btn--ghost" href="https://cashbarber.com.br/vinil" target="_blank" rel="noopener">Agendar</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
