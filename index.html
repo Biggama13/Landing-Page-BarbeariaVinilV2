@@ -20,6 +20,8 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm0 1.800a8.200 8.200 0 1 1-4.300 15.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 0 1 12 3.800zM8.700 7.500c-.2 0-.5.100-.7.400-.3.300-1 1-1 2.400 0 1.400 1 2.800 1.200 3 .2.200 2 3.200 5 4.300 2.500.9 3 .7 3.500.6.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.6-.3l-1.800-.9c-.3-.1-.5-.1-.7.1l-.8 1c-.1.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.8-.7-1.400-1.600-1.600-1.900-.1-.3 0-.4.100-.5l.4-.5.3-.4c.1-.2.100-.3 0-.5l-.8-2c-.2-.5-.4-.5-.6-.5z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></symbol>
+  <symbol id="i-g" viewBox="0 0 24 24"><path d="M12.480 10.920v3.280h7.840c-.240 1.840-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.400-6.053 2.400-4.827 0-8.600-3.893-8.600-8.720s3.773-8.720 8.600-8.720c2.600 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.440 16.133 0 12.480 0 5.867 0 .307 5.387.307 12s5.560 12 12.173 12c3.573 0 6.267-1.173 8.373-3.360 2.160-2.160 2.840-5.213 2.840-7.667 0-.760-.053-1.467-.173-2.053H12.480z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.090 6.260L22 9.270l-5 4.870 1.180 6.880L12 17.770l-6.180 3.250L7 14.140 2 9.270l6.910-1.010L12 2z"/></symbol>
 </svg>
 
 <template id="tpl-scissors">
@@ -119,7 +121,18 @@
     </div>
 
     <article class="glass unit" role="tabpanel" id="u1" aria-labelledby="t1">
-      <iframe title="Mapa da unidade Canal 4" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Siqueira+Campos,+361,+Embar%C3%A9,+Santos+-+SP&z=16&output=embed"></iframe>
+      <div class="unit__media">
+        <iframe title="Mapa da unidade Canal 4" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Siqueira+Campos,+361,+Embar%C3%A9,+Santos+-+SP&z=16&output=embed"></iframe>
+        <!-- Avaliação Google: para o link direto de avaliação, troque o href por https://search.google.com/local/writereview?placeid=ID_DO_LOCAL -->
+        <div class="review">
+          <p class="review__head"><svg><use href="#i-g"/></svg>Avaliações no Google</p>
+          <div class="review__score">
+            <span class="review__num">5,0</span>
+            <span class="stars" style="--r:5" role="img" aria-label="Nota 5,0 de 5 estrelas"><i></i><i></i></span>
+          </div>
+          <a class="btn btn--ghost review__btn" href="https://www.google.com/maps/search/?api=1&query=Vinil+Barbearia+Av.+Siqueira+Campos,+361,+Embar%C3%A9,+Santos+-+SP" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Avaliar no Google</a>
+        </div>
+      </div>
       <div class="unit__body">
         <h3>Unidade Canal 4</h3>
         <p>Av. Siqueira Campos, 361<br>Embaré, Santos - SP</p>
@@ -132,7 +145,17 @@
     </article>
 
     <article class="glass unit" role="tabpanel" id="u2" aria-labelledby="t2" hidden>
-      <iframe title="Mapa da unidade Canal 2" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Bernardino+de+Campos,+441,+Campo+Grande,+Santos+-+SP&z=16&output=embed"></iframe>
+      <div class="unit__media">
+        <iframe title="Mapa da unidade Canal 2" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Bernardino+de+Campos,+441,+Campo+Grande,+Santos+-+SP&z=16&output=embed"></iframe>
+        <div class="review">
+          <p class="review__head"><svg><use href="#i-g"/></svg>Avaliações no Google</p>
+          <div class="review__score">
+            <span class="review__num">4,9</span>
+            <span class="stars" style="--r:4.9" role="img" aria-label="Nota 4,9 de 5 estrelas"><i></i><i></i></span>
+          </div>
+          <a class="btn btn--ghost review__btn" href="https://www.google.com/maps/search/?api=1&query=Vinil+Barbearia+Av.+Bernardino+de+Campos,+441,+Campo+Grande,+Santos+-+SP" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Avaliar no Google</a>
+        </div>
+      </div>
       <div class="unit__body">
         <h3>Unidade Canal 2</h3>
         <p>Av. Bernardino de Campos, 441<br>Campo Grande, Santos - SP</p>
@@ -145,7 +168,17 @@
     </article>
 
     <article class="glass unit" role="tabpanel" id="u3" aria-labelledby="t3" hidden>
-      <iframe title="Mapa da unidade Ponta da Praia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rua+Bassim+Nagib+Trabulsi,+162,+Ponta+da+Praia,+Santos+-+SP&z=16&output=embed"></iframe>
+      <div class="unit__media">
+        <iframe title="Mapa da unidade Ponta da Praia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rua+Bassim+Nagib+Trabulsi,+162,+Ponta+da+Praia,+Santos+-+SP&z=16&output=embed"></iframe>
+        <div class="review">
+          <p class="review__head"><svg><use href="#i-g"/></svg>Avaliações no Google</p>
+          <div class="review__score">
+            <span class="review__num">5,0</span>
+            <span class="stars" style="--r:5" role="img" aria-label="Nota 5,0 de 5 estrelas"><i></i><i></i></span>
+          </div>
+          <a class="btn btn--ghost review__btn" href="https://www.google.com/maps/search/?api=1&query=Vinil+Barbearia+Rua+Bassim+Nagib+Trabulsi,+162,+Ponta+da+Praia,+Santos+-+SP" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Avaliar no Google</a>
+        </div>
+      </div>
       <div class="unit__body">
         <h3>Unidade Ponta da Praia</h3>
         <p>Rua Bassim Nagib Trabulsi, 162<br>Ponta da Praia, Santos - SP</p>
